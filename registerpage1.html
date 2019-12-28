@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title> Registration from </title>
+<center><h1 style="color:blue;">Customer Registration!!!!<h1></center>
+  <style>
+    input,textarea,text{
+    background-color:rgb(255, 255, 255);
+    color:rgb(42, 6, 248);
+    border-radius:10px;
+    }
+    
+    <!--table{
+    border : 1px solid blue;
+    }-->
+    
+    
+    
+    tr:hover {
+    background-color:yellow;
+    }
+    
+    table 
+    {
+      border:0px
+    }
+
+    
+    </style>
+<script>
+  
+function chkusername()
+{
+	var uname = document.getElementById("txtname").value;
+	if(uname == "" || uname.length<5)
+	{
+		errmsg = "Entert the username";
+		document.getElementById("errp").innerHTML = "passwaord Wrong";
+		return false;
+	}
+	return true;
+}
+
+function validatepass()
+{
+	errmsg="";
+	var cpass = document.getElementById("txtrpass").value;
+	var pass = document.getElementById("txtpass").value;
+	if(pass!=cpass)
+	{
+		errmsg = "Password and Confirm Password mismatch";
+		document.getElementById("errp").innerHTML = "passwaord Wrong";
+		return false;
+	}
+	else
+	{
+		document.getElementById("errp").innerHTML = errmsg;
+		return true;
+	}
+	
+}
+function validatemail()
+{ 
+   msg=""
+  var mail = docment.getElementById("email").value;
+     var reg = (/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
+         if (reg.test(mail) == false) 
+           {
+                document.getElementById("errp").innerHTML = "email is Wrong";
+                return false;
+           }
+  return true;
+}
+function validatmobile()
+
+{
+	var uname = document.getElementById("mobile").value;
+	if(uname == "" || uname.length<11)
+	{
+		alert("moblie is blank or less then 10 number");
+		/* uname = prompt("Enter correct username");
+		docment.getElementById("txtname").value = uname;*/
+		return false;
+	}
+	return true;
+
+}
+</script>
+</head>
+<body>
+    <center><h2>
+        What kind of car Would you like to buy</h2>
+       <td nowrap>
+        <input type="checkbox" name="chkedu[]"  /> Honad 
+        <input type="checkbox" name="chkedu[]"  /> Farrari
+        <input type="checkbox" name="chkedu[]" /> Ford
+        <input type="checkbox" name="chkedu[]" /> ducati
+       </td></center>
+ 
+       <center> <h3>What Colour  do ypu want on  your car?</h3> 
+      <select type="select" name="selectcolour">
+        <option>Black</option>  
+        <option> Black </option>
+        <option selected> Blue </option>
+        <option> white </option>
+        </select>
+        other <input type="text" name="other colour">
+        </center>
+        <center>
+            <h1>
+            Enter other specification on your car ?
+            </h1>
+            <td>
+            <textarea name="txaaddr"  
+            rows="4" cols="50"
+            placeholder="specification"></textarea>
+            </td></center>
+            
+<form onsubmit="return validate()">
+<center><table 
+
+>
+<tr>
+<th colspan="2"> Tell us How to get in touch with you!!! </th>
+</tr>
+<tr>
+<td>
+Username 
+</td>
+<td>
+<input type="text" name="txtname" id="txtname"
+maxlength="10" onblur="chkusername()" autofocus required 
+placeholder = "Enter Username"/>
+</td>
+</tr>
+<tr>
+<td>
+Password
+</td>
+<td>
+<input type="password" id="txtpass"  name="txtpass" 
+ autofocus 
+placeholder = "Enter Password"
+/>
+<div id="errp"></div>
+</td>
+</tr>
+<tr>
+    <td>
+email
+</td>
+<td>
+<input type="email" name="email"  id="email"  
+ placeholder = "Enter Email"
+ onblur="validatemail()" />
+ <div id="errp"></div>
+</td>
+</tr>
+<tr>
+<td>
+Mobile
+</td>
+<td>
+<input type="number" name="mobile" id="mobile"
+placeholder = "Enter Mobile" onblur="validatmobile()" 
+/>
+<div id="errp"></div>
+</td>
+</tr>
+<tr>
+    <td>
+<form action="/action_page.php">
+  <input type="checkbox" name="vehicle3" value="Boat" checked> please contact as soon as possible<br>
+</form>
+</td>
+</tr>
+<tr> 
+<td align="right"> 
+<input type="submit"  class="btn btn-primary" value="submit"/>
+</td>
+<td> <button class="btn btn-danger" type="reset">Clear</button>
+</td>
+</tr>
+</table>
+</center>
+</form>
+</body>
+</html>
+
+
+
+
+
